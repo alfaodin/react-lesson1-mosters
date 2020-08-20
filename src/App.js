@@ -9,11 +9,23 @@ export default class App extends Component {
       name: 'Christian Cartes',
       count: 0,
     };
+    this.increaseCounter0 = this.increaseCounter0.bind(this);
   }
 
-  increaseCounter = () => {
+  increaseCounter0() {
     this.setState({ count: this.state.count + 1 });
     console.log(this.state.count);
+  };
+
+  increaseCounter1 = () => {
+    this.setState({ count: this.state.count + 1 });
+    console.log(this.state.count);
+  };
+
+  increaseCounter2 = () => {
+    this.setState({ count: this.state.count + 1 }, () => {
+      console.log(this.state.count);
+    });
   };
 
   render() {
@@ -27,7 +39,7 @@ export default class App extends Component {
             <button onClick={() => this.setState({ name: 'Lur rey de Omicron' })}>
               Saludos a Lur
             </button>
-            <button onClick={this.increaseCounter}>
+            <button onClick={this.increaseCounter0}>
               INCREMENTAR
             </button>
           </div>
