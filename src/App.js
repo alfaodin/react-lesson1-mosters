@@ -1,54 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react';
+import logo from './logo.svg';
 import './App.css';
 
-export default class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      name: 'Christian Cartes',
-      count: 0,
-    };
-    this.increaseCounter0 = this.increaseCounter0.bind(this);
-  }
-
-  increaseCounter0() {
-    this.setState({ count: this.state.count + 1 });
-    console.log(this.state.count);
-  };
-
-  increaseCounter1 = () => {
-    this.setState({ count: this.state.count + 1 });
-    console.log(this.state.count);
-  };
-
-  increaseCounter2 = () => {
-    this.setState({ count: this.state.count + 1 }, () => {
-      console.log(this.state.count);
-    });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <p className="hello-world">
-            HOLA <span className="user-name">{this.state.name}</span>
-          </p>
-          <div className="actions-button">
-            <button onClick={() => this.setState({ name: 'Lur rey de Omicron' })}>
-              Saludos a Lur
-            </button>
-            <button onClick={this.increaseCounter0}>
-              INCREMENTAR
-            </button>
-          </div>
-        </header>
-
-        <div className="contador">
-          {this.state.count}
-        </div>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
+
+export default App;
