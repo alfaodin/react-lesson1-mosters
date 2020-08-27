@@ -1,53 +1,64 @@
 import React, { Component } from 'react'
 import './App.css';
+import SearchBox from './components/seach-box/search-box.component';
+import MonsterList from './components/monster-list/monster-list.component';
 
 export default class App extends Component {
 
   constructor() {
     super();
     this.state = {
-      name: 'Christian Cartes',
-      count: 0,
-    };
-    this.increaseCounter0 = this.increaseCounter0.bind(this);
+      searchParamer: '',
+      monsters: [
+        {
+          id: 1,
+          name: 'Christian',
+          email: 'test@test.com'
+        },
+        {
+          id: 2,
+          name: 'Chago',
+          email: 'chago@test.com'
+        },
+        {
+          id: 3,
+          name: 'Cijifredo',
+          email: 'ciji@test.com'
+        },
+        {
+          id: 4,
+          name: 'Saul',
+          email: 'saul@test.com'
+        },
+
+      ]
+    }
   }
 
-  increaseCounter0() {
-    this.setState({ count: this.state.count + 1 });
-    console.log(this.state.count);
-  };
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(data => data.json())
+      .then(users => this.setState({ monsters: users }));
+  }
 
-  increaseCounter1 = () => {
-    this.setState({ count: this.state.count + 1 });
-    console.log(this.state.count);
-  };
-
-  increaseCounter2 = () => {
-    this.setState({ count: this.state.count + 1 }, () => {
-      console.log(this.state.count);
-    });
+  searchCallback = (searchParam) => {
+    this.setState({ searchParamer: searchParam }, () => console.log(`HOLA MUNOD ${this.state.searchParamer}`));
   };
 
   render() {
+    const { searchParamer, monsters } = this.state;
+
+    const monsterList = monsters.filter(data => data.name.toLowerCase().includes(searchParamer.toLowerCase()))
+
     return (
       <div className="App">
-        <header className="App-header">
-          <p className="hello-world">
-            HOLA <span className="user-name">{this.state.name}</span>
-          </p>
-          <div className="actions-button">
-            <button onClick={() => this.setState({ name: 'Lur rey de Omicron' })}>
-              Saludos a Lur
-            </button>
-            <button onClick={this.increaseCounter0}>
-              INCREMENTAR
-            </button>
-          </div>
-        </header>
 
-        <div className="contador">
-          {this.state.count}
+        <div className="header-container">
+          <h1 className="app-title">Listado de Monstruos</h1>
+          <SearchBox onSearchCallback={this.searchCallback} placeHolder='Ingresa tus búsqueda'></SearchBox>
         </div>
+
+        <MonsterList monsterList={monsterList} />
       </div>
     );
   }

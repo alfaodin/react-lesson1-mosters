@@ -1,40 +1,25 @@
 .App {
-  text-align: center;
-  position: relative;
-}
+  width: 100vw;
+  height: 100vh;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 212, 255, 1) 100%, rgba(0, 116, 255, 1) 100%);
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-.actions-button {
-  gap: 10px;
-  height: 50px;
-  width: 300px;
+
+.header-container {
   display: flex;
-  justify-content: center;
-  background-color: #404e69;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
-.contador {
-  position: absolute;
-  top: 50%;
-  right: 30%;
-  color: white;
+.app-title {
+  font-family: 'Bigelow Rules', cursive;
   font-size: 3rem;
-}
-
-.hello-world {
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.user-name {
-  font-size: 5rem;
-  color: blueviolet;
+  color: #0ccac4;
 }
