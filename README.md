@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### `yarn start`
 
-### Primer Ejercicio
+### Primer Ejemplo
 
 `const person = {
   first: 'Wes',
@@ -18,3 +18,37 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 const last1 = person.last;`
 
 `const { first, last } = person;`
+
+
+### Ejercicio 1
+`const wes = {
+  first: 'Wes',
+  last: 'Bos',
+  links: {
+    social: {
+      twitter: 'https://twitter.com/wesbos',
+      facebook: 'https://facebook.com/wesbos.developer',
+    },
+    web: {
+      blog: 'https://wesbos.com'
+    }
+  }
+};`
+
+### Ejercicio 2
+`const twitter = 'twitter.com';
+const wes = {
+  first: 'Wes',
+  last: 'Bos',
+  links: {
+    social: {
+      twitter: 'https://twitter.com/wesbos',
+      facebook: 'https://facebook.com/wesbos.developer',
+    },
+    web: {
+      blog: 'https://wesbos.com'
+    }
+  }
+};`
+
+
